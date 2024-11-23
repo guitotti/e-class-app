@@ -1,7 +1,13 @@
-import "./App.css";
+import LoginTeacher from "./pages/LoginTeacher";
+import LoginStudent from "./pages/LoginStudent";
+import Register from "./pages/Register";
 
 function App() {
-  return <h1>Hello world!</h1>;
+  return (
+    // <LoginTeacher />
+    <LoginStudent />
+    // <Register/>
+  )
 }
 
 export default App;

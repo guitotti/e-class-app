@@ -1,0 +1,101 @@
+.loginPage {
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+  gap: 132px;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--offWhite);
+}
+
+.loginFormSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginFormSection > h2 {
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.loginFormSection > h4 {
+  color: var(--dark);
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.loginForm {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 340px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  gap: 18px;
+}
+
+.loginForm label {
+  display: block;
+  text-align: left;
+  font-weight: normal;
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+.loginForm input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid var(--light);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--purple);
+  font-weight: 500;
+  background-color: var(--offWhite);
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 295px;
+  height: 48px;
+}
+
+.loginForm button {
+  background-color: var(--purple);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  width: 142px;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loginForm button:hover {
+  opacity: 0.8;
+}
+
+.loginForm a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.loginForm a:hover {
+  color: var(--purple);
+}
