@@ -1,6 +1,6 @@
 import styles from "./Register.module.css";
 
-function Login() {
+function Register() {
   return (
     <div className={styles.registerPage}>
       <div className={styles.logoSection}>
@@ -25,7 +25,7 @@ function Login() {
             </div>
           </form>
           <button type="submit">Entrar</button>
-          <a href="/register" className={styles.registerLink}>
+          <a href="/login" className={styles.registerLink}>
             Já possui uma conta? Fazer login
           </a>
         </div>
@@ -34,4 +34,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
