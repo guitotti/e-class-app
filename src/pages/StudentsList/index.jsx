@@ -8,8 +8,8 @@ function StudentsList() {
     <div className={styles.app}>
       <Sidebar />
       <main>
-        <Header />
-        <div>
+        <Header title={"Lista de estudantes"}/>
+        <div className={styles.content}>
           <StudentList />
         </div>
       </main>
