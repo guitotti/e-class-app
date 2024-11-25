@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--purple);
+}
+
+.header input {
+  padding: 10px;
+  border: 2px solid var(--light);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 400px;
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--purple);
+  cursor: pointer;
+}
