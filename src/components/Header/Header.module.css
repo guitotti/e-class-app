@@ -4,10 +4,11 @@
   justify-content: space-evenly;
   padding: 20px;
   background-color: var(--white);
+  margin-left: 260px;
 }
 
 .header h2 {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--purple);
 }
