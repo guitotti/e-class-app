@@ -1,0 +1,41 @@
+.sidebar {
+  width: 260px;
+  padding: 20px;
+  background-color: var(--white);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-right: var(--light) 1px solid;
+}
+
+.logoSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logoImage {
+  width: 110px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  color: var(--purple);
+  margin-right: 8px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  font-size: 0.925rem;
+  color: var(--dark);
+  margin: 15px 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+nav li:hover {
+  color: var(--light);
+}
