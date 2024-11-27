@@ -73,14 +73,14 @@ function RegisterStudent() {
                 type="text"
                 placeholder="Usuário"
                 className={styles.input}
-                defaultValue={user}
+                value={user}
                 onChange={(event) => setUser(event.target.value)}
               />
               <input
                 type="password"
                 placeholder="Senha"
                 className={styles.input}
-                defaultValue={password}
+                value={password}
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
@@ -88,14 +88,14 @@ function RegisterStudent() {
               type="email"
               placeholder="E-mail (opcional)"
               className={styles.input}
-              defaultValue={email}
+              value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
             <input
               type="text"
               placeholder="Descrição"
               className={styles.input}
-              defaultValue={description}
+              value={description}
               onChange={(event) => setDescription(event.target.value)}
             />
             <div className={styles.row}>
@@ -103,14 +103,14 @@ function RegisterStudent() {
                 type="text"
                 placeholder="Dia da semana"
                 className={styles.input}
-                defaultValue={weekday}
+                value={weekday}
                 onChange={(event) => setWeekday(event.target.value)}
               />
               <input
                 type="time"
                 placeholder="Horário"
                 className={styles.input}
-                defaultValue={time}
+                value={time}
                 onChange={(event) => setTime(event.target.value)}
               />
             </div>
