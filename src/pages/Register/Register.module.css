@@ -63,7 +63,7 @@
   height: 48px;
 }
 
-.registerForm button {
+.registerButton {
   background-color: var(--purple);
   color: var(--white);
   border: none;
@@ -77,7 +77,7 @@
   transition: background-color 0.3s ease;
 }
 
-.registerForm button:hover {
+.registerButton:hover {
   opacity: 0.8;
 }
 
