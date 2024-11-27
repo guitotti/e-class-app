@@ -27,15 +27,15 @@ function TaskCard({ id, title, status, description, dueDate }) {
         </div>
       </div>
       <div className={styles.taskActions}>
-        <button onClick={handleEyeClick}>
+        <button className={styles.iconButton} onClick={handleEyeClick}>
           <BsEyeFill className={styles.eyeIcon} />
         </button>
         {status == "pendente" && (
-          <button>
+          <button className={styles.iconButton}>
             <BiSolidCheckCircle className={styles.checkIcon} />
           </button>
         )}
-        <button>
+        <button className={styles.iconButton}>
           <BiTrash className={styles.trashIcon} />
         </button>
       </div>

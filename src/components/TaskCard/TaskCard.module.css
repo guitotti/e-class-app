@@ -52,10 +52,11 @@
   gap: 20px;
 }
 
-button {
+.iconButton {
   border: none;
   background: none;
   cursor: pointer;
+  width: auto;
 }
 
 .checkIcon {
