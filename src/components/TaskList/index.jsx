@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import TaskCard from "../TaskCard";
 import styles from "./TaskList.module.css";
+import StudentTaskCard from "../StudentTaskCard";
 
-function TaskList() {
+function TaskList({ isStudent }) {
   const [tasks, setTasks] = useState([
     { id: 1, title: "Task 1", status: "pendente", dueDate: "03 de outubro" },
     { id: 2, title: "Task 2", status: "corrigida", dueDate: "01 de outubro" },
@@ -35,15 +37,27 @@ function TaskList() {
         {openSections.pendente && (
           <div className={styles.taskSection}>
             {pendingTasks.length > 0 ? (
-              pendingTasks.map((task) => (
-                <TaskCard
-                  key={task.id}
-                  title={task.title}
-                  status={task.status}
-                  description={task.description}
-                  dueDate={task.dueDate}
-                />
-              ))
+              pendingTasks.map((task) =>
+                !isStudent ? (
+                  <TaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                ) : (
+                  <StudentTaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                )
+              )
             ) : (
               <p>Sem tarefas pendentes.</p>
             )}
@@ -58,15 +72,27 @@ function TaskList() {
         {openSections.corrigida && (
           <div className={styles.taskSection}>
             {correctedTasks.length > 0 ? (
-              correctedTasks.map((task) => (
-                <TaskCard
-                  key={task.id}
-                  title={task.title}
-                  status={task.status}
-                  description={task.description}
-                  dueDate={task.dueDate}
-                />
-              ))
+              correctedTasks.map((task) =>
+                !isStudent ? (
+                  <TaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                ) : (
+                  <StudentTaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                )
+              )
             ) : (
               <p>Sem atividades corrigidas.</p>
             )}
@@ -82,13 +108,25 @@ function TaskList() {
           <div className={styles.taskSection}>
             {sentTasks.length > 0 ? (
               sentTasks.map((task) => (
-                <TaskCard
-                  key={task.id}
-                  title={task.title}
-                  status={task.status}
-                  description={task.description}
-                  dueDate={task.dueDate}
-                />
+                !isStudent ? (
+                  <TaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                ) : (
+                  <StudentTaskCard
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    status={task.status}
+                    description={task.description}
+                    dueDate={task.dueDate}
+                  />
+                )
               ))
             ) : (
               <p>Sem atividades enviadas.</p>
