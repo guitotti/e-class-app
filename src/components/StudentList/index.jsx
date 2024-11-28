@@ -1,25 +1,8 @@
+/* eslint-disable react/prop-types */
 import StudentCard from "../StudentCard";
 import styles from "./StudentList.module.css";
 
-function StudentList() {
-  const students = [
-    {
-      id: 1,
-      name: "João Pedro",
-      schedule: "Seg. 14h00",
-      description: "Inglês - B1",
-      pendingTask: "1",
-      pendingCorrection: "0",
-    },
-    {
-      id: 2,
-      name: "Maria Clara",
-      schedule: "Seg. 14h00",
-      description: "Inglês - B1",
-      pendingTask: "1",
-      pendingCorrection: "0",
-    },
-  ];
+function StudentList({ students }) {
 
   return (
     <div className={styles.studentList}>

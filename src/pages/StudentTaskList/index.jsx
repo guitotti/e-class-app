@@ -1,17 +1,46 @@
-/* eslint-disable react/prop-types */
+ 
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import TaskList from "../../components/TaskList";
 import styles from "./StudentTaskList.module.css";
 import { AiOutlineFileAdd } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+import useAuthenticationCheck from "../../hooks/auth";
 
-function StudentsTaskList({ student }) {
+function StudentsTaskList() {
   const [showPopup, setShowPopup] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
+
+  const location = useLocation();
+  const state = location.state;
+  console.log(state);
+
+  const [tasks, setTasks] = useState([]);
+
+  const isAuthenticated = useAuthenticationCheck();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      const fetchTasks = async () => {
+        try {
+          const response = await axios.get("http://localhost:3000/tasks/", {
+            studentId: state.id
+          });
+          console.log(response.data);
+
+          const tasks = response.data;
+          setTasks(tasks);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchTasks();
+    }
+  }, [isAuthenticated, state.id]);
 
   const handleAddTaskButton = () => {
     setShowPopup(true);
@@ -19,36 +48,33 @@ function StudentsTaskList({ student }) {
 
   const handleClosePopup = () => {
     setShowPopup(false);
-  };
-
-  const requestBody = {
-    title: title,
-    description: description,
-    status: "pending",
-    dueDate: dueDate,
-    teacherId: "12345",
-    studentId: "54321",
-  };
-
-  const formData = new FormData();
-  formData.append('title', title);
-  formData.append('description', description);
-  formData.append('status', 'pending');
-  formData.append('dueDate', dueDate);
-  formData.append('teacherId', '12345');
-  formData.append('studentId', '54321');
+  }; 
 
   const handleSaveTask = (event) => {
     event.preventDefault();
 
+    const requestBody = {
+      title: title,
+      description: description,
+      status: "pending",
+      dueDate: dueDate,
+      teacherId: "12345",
+      studentId: "54321",
+    };
+
     const fetchData = async () => {
       try {
-        const response = await axios.post('http://localhost:3000/task', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+        await axios.post('http://localhost:3000/task', {
+          data: requestBody
+        })
+        .then(function (request) {
+          console.log(request);
+          alert("Tarefa criada com sucesso!")
+          window.location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
         });
-        console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -56,6 +82,9 @@ function StudentsTaskList({ student }) {
 
     fetchData();
     setShowPopup(false);
+    setTitle("");
+    setDescription("");
+    setDueDate("");
   };
 
   return (
@@ -71,7 +100,7 @@ function StudentsTaskList({ student }) {
             <AiOutlineFileAdd className={styles.addTaskIcon} />
             Adicionar tarefa
           </button>
-          <TaskList />
+          <TaskList tasks={tasks}/>
           {showPopup && (
             <div className={styles.popup}>
               <div className={styles.popupContent}>

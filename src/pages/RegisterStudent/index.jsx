@@ -29,6 +29,7 @@ function RegisterStudent() {
         })
         .then(function (request) {
           console.log(request);
+          alert("Estudante cadastrado com sucesso!");
         })
         .catch(function (error) {
           console.log(error);

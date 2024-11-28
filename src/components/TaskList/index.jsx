@@ -4,12 +4,7 @@ import TaskCard from "../TaskCard";
 import styles from "./TaskList.module.css";
 import StudentTaskCard from "../StudentTaskCard";
 
-function TaskList({ isStudent }) {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Task 1", status: "pendente", dueDate: "03 de outubro" },
-    { id: 2, title: "Task 2", status: "corrigida", dueDate: "01 de outubro" },
-    { id: 3, title: "Task 3", status: "corrigida", dueDate: "02 de outubro" },
-  ]);
+function TaskList({ isStudent, tasks }) {
 
   const [openSections, setOpenSections] = useState({
     pendente: true,

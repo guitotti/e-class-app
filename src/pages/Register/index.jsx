@@ -5,13 +5,15 @@ import { useState } from "react";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const fetchData = async () => {
       try {
         await axios.post('http://localhost:3000/teacher', {
-          name: 'Fred',
+          name: name,
           email: email,
           password: password,
         })
@@ -27,6 +29,7 @@ function Register() {
     };
 
     fetchData();  
+    setName("");
     setEmail("");
     setPassword("");
   };
@@ -44,6 +47,11 @@ function Register() {
         <h2>Cadastrar</h2>
         <div className={styles.registerForm}>
           <form>
+            <div className={styles.inputGroup}>
+              <label htmlFor="name">Nome</label>
+              <input type="name" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
+            </div>
+
             <div className={styles.inputGroup}>
               <label htmlFor="email">E-mail</label>
               <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>

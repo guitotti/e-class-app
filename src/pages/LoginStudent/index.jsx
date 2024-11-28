@@ -1,28 +1,12 @@
 import axios from "axios";
 import styles from "./Login.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const user = event.target.user.value;
-  //   const password = event.target.password.value;
-
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('/api/data');
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchData();  
-
-  // };
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,11 +14,16 @@ function Login() {
     const fetchData = async () => {
       try {
         await axios.post('http://localhost:3000/student/login', {
-          username: user,
+          userId: user,
           password: password,
         })
         .then(function (request) {
-          console.log(request);
+          const data = request.data;
+          console.log(data)
+          localStorage.setItem("token", data.token);
+
+          alert("Olá, estudante!");
+          navigate("/student", { state: data.studentId });
         })
         .catch(function (error) {
           console.log(error);
@@ -62,7 +51,7 @@ function Login() {
         <h2>Login</h2>
         <h4>Para contas de estudante.</h4>
         <div className={styles.loginForm}>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className={styles.inputGroup}>
               <label htmlFor="user">Usuário</label>
               <input type="text" id="user" name="user" value={user} onChange={(e) => setUser(e.target.value)} />
@@ -73,7 +62,7 @@ function Login() {
               <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
           </form>
-          <button type="submit">Entrar</button>
+          <button type="submit" onClick={handleSubmit}>Entrar</button>
         </div>
       </div>
     </div>

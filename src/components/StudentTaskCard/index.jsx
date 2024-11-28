@@ -27,7 +27,7 @@ function StudentTaskCard({ id, status, title, description, dueDate }) {
       </div>
       <div className={styles.taskActions}>
         {status == "pendente" ? (
-          <button className={styles.sendButton} onClick={() => console.log("Clicou no estudante " + id)}>
+          <button className={styles.sendButton}>
             <BsSendArrowUpFill className={styles.icon} /> Enviar
           </button>
         ) : (

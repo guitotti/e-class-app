@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import styles from "./StudentCard.module.css";
 import { BsPersonFill } from "react-icons/bs";
 
@@ -11,8 +12,10 @@ function StudentCard({
   pendingCorrection,
 }) {
 
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log("Clicou no estudante " + id);
+    navigate("/student/tasks", { state: id });
   };
 
   return (
