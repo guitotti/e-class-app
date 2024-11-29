@@ -14,12 +14,14 @@ function StudentsTaskList() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   const location = useLocation();
   const state = location.state;
-  console.log(state);
+  console.log("state", state);
 
-  const [tasks, setTasks] = useState([]);
+  const teacherId = localStorage.getItem("teacherId");
+  console.log("teacher id",teacherId);
 
   const isAuthenticated = useAuthenticationCheck();
 
@@ -27,8 +29,10 @@ function StudentsTaskList() {
     if (isAuthenticated) {
       const fetchTasks = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/tasks/", {
-            studentId: state.id
+          const response = await axios.get("http://localhost:3000/tasks", {
+            params: {
+              studentId: state
+            }
           });
           console.log(response.data);
 
@@ -39,8 +43,8 @@ function StudentsTaskList() {
         }
       };
       fetchTasks();
-    }
-  }, [isAuthenticated, state.id]);
+    } 
+  }, [isAuthenticated, state]);
 
   const handleAddTaskButton = () => {
     setShowPopup(true);
@@ -58,8 +62,8 @@ function StudentsTaskList() {
       description: description,
       status: "pending",
       dueDate: dueDate,
-      teacherId: "12345",
-      studentId: "54321",
+      teacherId: teacherId,
+      studentId: state,
     };
 
     const fetchData = async () => {

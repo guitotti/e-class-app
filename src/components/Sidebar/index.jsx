@@ -25,7 +25,7 @@ function Sidebar({ isStudent, studentName }) {
       {isStudent ? (
         <>
           <p>Olá</p>
-          <span>{studentName}</span>
+          <span>Estudante</span>
           <nav>
             <ul>
               <li>

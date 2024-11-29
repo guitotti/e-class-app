@@ -21,9 +21,10 @@ function Login() {
           const data = request.data;
           console.log(data)
           localStorage.setItem("token", data.token);
+          localStorage.setItem("studentId", data.studentId.id);
 
           alert("Olá, estudante!");
-          navigate("/student", { state: data.studentId });
+          navigate("/student");
         })
         .catch(function (error) {
           console.log(error);

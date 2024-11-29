@@ -26,6 +26,7 @@ function RegisterStudent() {
           description: description,
           weekday: weekday,
           time: time,
+          teacherId: localStorage.getItem("teacherId")
         })
         .then(function (request) {
           console.log(request);

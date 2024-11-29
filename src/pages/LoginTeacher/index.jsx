@@ -21,8 +21,10 @@ function Login() {
           console.log(data);
 
           localStorage.setItem("token", data.token);
+          localStorage.setItem("teacherId", data.teacher.id);
+          
           alert("Olá, teacher!");
-          navigate("/students", { state: data.teacher });
+          navigate("/students");
         })
         .catch(function (error) {
           console.log(error);

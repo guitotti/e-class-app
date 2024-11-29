@@ -5,7 +5,6 @@ import styles from "./TaskList.module.css";
 import StudentTaskCard from "../StudentTaskCard";
 
 function TaskList({ isStudent, tasks }) {
-
   const [openSections, setOpenSections] = useState({
     pendente: true,
     corrigida: false,
@@ -97,12 +96,13 @@ function TaskList({ isStudent, tasks }) {
 
       <div>
         <h2 onClick={() => switchSection("enviada")}>
-          {openSections.enviada ? "▼" : "▶"} Atividades enviadas
+          {openSections.enviada ? "▼" : "▶"}{" "}
+          {isStudent ? "Atividades recebidas" : "Atividades enviadas"}
         </h2>
         {openSections.enviada && (
           <div className={styles.taskSection}>
             {sentTasks.length > 0 ? (
-              sentTasks.map((task) => (
+              sentTasks.map((task) =>
                 !isStudent ? (
                   <TaskCard
                     key={task.id}
@@ -122,7 +122,7 @@ function TaskList({ isStudent, tasks }) {
                     dueDate={task.dueDate}
                   />
                 )
-              ))
+              )
             ) : (
               <p>Sem atividades enviadas.</p>
             )}

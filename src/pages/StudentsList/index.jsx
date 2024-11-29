@@ -15,12 +15,18 @@ function StudentsList() {
   const [students, setStudents] = useState([]);
 
   const isAuthenticated = useAuthenticationCheck();
+  const teacherId = localStorage.getItem("teacherId");
+  console.log(teacherId);
 
   useEffect(() => {
     if (isAuthenticated) {
       const fetchStudents = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/students");
+          const response = await axios.get("http://localhost:3000/students", {
+            params: {
+              teacherId: teacherId
+            }
+          });
           console.log(response.data);
 
           const students = response.data;
@@ -31,7 +37,7 @@ function StudentsList() {
       };
       fetchStudents();
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, teacherId]);
 
   return (
     <div className={styles.app}>

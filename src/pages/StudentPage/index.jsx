@@ -5,27 +5,31 @@ import styles from "./StudentPage.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useAuthenticationCheck from "../../hooks/auth";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function StudentPage() {
-  const [showPopup, setShowPopup] = useState(false);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  // const [showPopup, setShowPopup] = useState(false);
+  // const [title, setTitle] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [dueDate, setDueDate] = useState("");
+
+  const navigate = useNavigate();
 
   const [tasks, setTasks] = useState([]);
-  const [studentData, setStudentData] = useState({});
-  const location = useLocation();
-  const state = location.state;
-  setStudentData(state);
+
 
   const isAuthenticated = useAuthenticationCheck();
+  const studentId = localStorage.getItem("studentId");
 
   useEffect(() => {
     if (isAuthenticated) {
       const fetchTasks = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/tasks/");
+          const response = await axios.get("http://localhost:3000/tasks", {
+            params: {
+              studentId: studentId
+            }
+          });
           console.log(response.data);
 
           const tasks = response.data;
@@ -35,8 +39,8 @@ function StudentPage() {
         }
       };
       fetchTasks();
-    }
-  }, [isAuthenticated, studentData.studentId]);
+    } 
+  }, [isAuthenticated, studentId, navigate]);
 
   // const handleSaveTask = (event) => {
   //   event.preventDefault();
@@ -62,7 +66,7 @@ function StudentPage() {
 
   return (
     <div className={styles.app}>
-      <Sidebar isStudent studentName={studentData.name} />
+      <Sidebar isStudent />
       <main>
         <Header title={"Atividades"} />
         <div className={styles.content}>

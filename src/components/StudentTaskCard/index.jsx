@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styles from "./StudentTaskCard.module.css";
 import { BsEyeFill, BsSendArrowUpFill } from "react-icons/bs";
-import { BiSolidCloudDownload } from "react-icons/bi";
+import { TbSend } from "react-icons/tb";
 
 function StudentTaskCard({ id, status, title, description, dueDate }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -55,7 +55,7 @@ function StudentTaskCard({ id, status, title, description, dueDate }) {
             </p>
             <div className={styles.popupActions}>
               <button>
-                <BiSolidCloudDownload className={styles.downloadIcon} /> Baixar
+                <TbSend className={styles.downloadIcon} /> Enviar
               </button>
               <button onClick={handleClosePopup}>Fechar</button>
             </div>
