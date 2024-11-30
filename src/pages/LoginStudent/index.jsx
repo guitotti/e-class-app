@@ -13,28 +13,30 @@ function Login() {
 
     const fetchData = async () => {
       try {
-        await axios.post('http://localhost:3000/student/login', {
-          userId: user,
-          password: password,
-        })
-        .then(function (request) {
-          const data = request.data;
-          console.log(data)
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("studentId", data.studentId.id);
+        await axios
+          .post("http://localhost:3000/student/login", {
+            userId: user,
+            password: password,
+          })
+          .then(function (request) {
+            const data = request.data;
+            console.log(data);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("studentId", data.studentId.id);
 
-          alert("Olá, estudante!");
-          navigate("/student");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+            alert("Olá, estudante!");
+            navigate("/student");
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert("Usuário ou senha incorretos!");
+          });
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchData();  
+    fetchData();
     setUser("");
     setPassword("");
   };
@@ -55,15 +57,32 @@ function Login() {
           <form>
             <div className={styles.inputGroup}>
               <label htmlFor="user">Usuário</label>
-              <input type="text" id="user" name="user" value={user} onChange={(e) => setUser(e.target.value)} />
+              <input
+                type="text"
+                id="user"
+                name="user"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+              />
             </div>
 
             <div className={styles.inputGroup}>
               <label htmlFor="password">Senha</label>
-              <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
           </form>
-          <button type="submit" onClick={handleSubmit}>Entrar</button>
+          <button type="submit" onClick={handleSubmit}>
+            Entrar
+          </button>
+          <a href="/login" className={styles.registerLink}>
+            Fazer login com conta de professor
+          </a>
         </div>
       </div>
     </div>

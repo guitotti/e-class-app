@@ -9,7 +9,7 @@ import {
 import { FaFileSignature } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
-function Sidebar({ isStudent, studentName }) {
+function Sidebar({ isStudent }) {
 
   const navigate = useNavigate();
 

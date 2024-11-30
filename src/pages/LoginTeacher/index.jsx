@@ -28,6 +28,7 @@ function Login() {
         })
         .catch(function (error) {
           console.log(error);
+          alert("E-mail ou senha incorretos!");
         });
       } catch (error) {
         console.error(error);
@@ -66,6 +67,9 @@ function Login() {
           <button type="submit" onClick={handleSubmit}>Entrar</button>
           <a href="/register" className={styles.registerLink}>
             Cadastrar conta de professor
+          </a>
+          <a href="/login/student" className={styles.registerLink}>
+            Fazer login com a conta de estudante
           </a>
         </div>
       </div>

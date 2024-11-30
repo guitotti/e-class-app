@@ -88,3 +88,16 @@
 .loginForm button:hover {
   opacity: 0.8;
 }
+
+.loginForm a {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: var(--light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.loginForm a:hover {
+  color: var(--purple);
+}
