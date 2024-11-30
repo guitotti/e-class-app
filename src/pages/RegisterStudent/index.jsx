@@ -101,13 +101,19 @@ function RegisterStudent() {
               onChange={(event) => setDescription(event.target.value)}
             />
             <div className={styles.row}>
-              <input
-                type="text"
+              <select 
                 placeholder="Dia da semana"
                 className={styles.input}
                 value={weekday}
                 onChange={(event) => setWeekday(event.target.value)}
-              />
+              >
+                <option value="segunda-feira">Segunda-feira</option>
+                <option value="terça-feira">Terça-feira</option>
+                <option value="quarta-feira">Quarta-feira</option>
+                <option value="quinta-feira">Quinta-feira</option>
+                <option value="sexta-feira">Sexta-feira</option>
+                <option value="sábado">Sabado</option>
+              </select>
               <input
                 type="time"
                 placeholder="Horário"

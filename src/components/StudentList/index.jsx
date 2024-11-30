@@ -11,7 +11,7 @@ function StudentList({ students }) {
           key={student.id}
           id={student.id}
           name={student.name}
-          schedule={student.schedule}
+          schedule={student.weekday + " - " + student.time}
           description={student.description}
           pendingTask={student.pendingTask}
           pendingCorrection={student.pendingCorrection}
