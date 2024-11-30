@@ -95,7 +95,7 @@ function StudentsTaskList() {
     <div className={styles.app}>
       <Sidebar />
       <main>
-        <Header title={"Estudante: " + "Nome do Estudante"} />
+        <Header title={"Seção de tarefas"} />
         <div className={styles.content}>
           <button
             className={styles.addTaskButton}

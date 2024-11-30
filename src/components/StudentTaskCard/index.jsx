@@ -26,7 +26,7 @@ function StudentTaskCard({ id, status, title, description, dueDate }) {
         </div>
       </div>
       <div className={styles.taskActions}>
-        {status == "pendente" ? (
+        {status == "enviada" ? (
           <button className={styles.sendButton}>
             <BsSendArrowUpFill className={styles.icon} /> Enviar
           </button>
@@ -35,7 +35,6 @@ function StudentTaskCard({ id, status, title, description, dueDate }) {
             <BsEyeFill className={styles.eyeIcon} />
           </button>
         )}
-        
       </div>
       {showPopup && (
         <div className={styles.popup}>
@@ -54,9 +53,11 @@ function StudentTaskCard({ id, status, title, description, dueDate }) {
               <span>Descrição:</span> {description}
             </p>
             <div className={styles.popupActions}>
-              <button>
-                <TbSend className={styles.downloadIcon} /> Enviar
-              </button>
+              {status == "enviada" && (
+                <button>
+                  <TbSend className={styles.downloadIcon} /> Enviar
+                </button>
+              )}
               <button onClick={handleClosePopup}>Fechar</button>
             </div>
           </div>

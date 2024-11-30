@@ -1,12 +1,13 @@
 import axios from "axios";
 import styles from "./Register.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -19,6 +20,8 @@ function Register() {
         })
         .then(function (request) {
           console.log(request);
+          alert("Professor cadastrado com sucesso!");
+          navigate("/login");
         })
         .catch(function (error) {
           console.log(error);

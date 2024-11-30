@@ -5,7 +5,7 @@ import { BiSolidCheckCircle, BiTrash } from "react-icons/bi";
 import { BsEyeFill } from "react-icons/bs";
 import { BiSolidCloudDownload } from "react-icons/bi";
 
-function TaskCard({ id, title, status, description, dueDate }) {
+function TaskCard({ title, status, description, dueDate }) {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleEyeClick = () => {
