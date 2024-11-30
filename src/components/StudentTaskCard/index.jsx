@@ -4,7 +4,7 @@ import styles from "./StudentTaskCard.module.css";
 import { BsEyeFill, BsSendArrowUpFill } from "react-icons/bs";
 import { TbSend } from "react-icons/tb";
 
-function StudentTaskCard({ id, status, title, description, dueDate }) {
+function StudentTaskCard({ status, title, description, dueDate }) {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleEyeClick = () => {
