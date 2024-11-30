@@ -22,7 +22,7 @@ function StudentsList() {
     if (isAuthenticated) {
       const fetchStudents = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/students", {
+          const response = await axios.get("https://e-class-api.onrender.com/students", {
             params: {
               teacherId: teacherId
             }

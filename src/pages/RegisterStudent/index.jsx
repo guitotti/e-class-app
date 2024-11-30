@@ -18,7 +18,7 @@ function RegisterStudent() {
   
     const fetchData = async () => {
       try {
-        await axios.post('http://localhost:3000/student', {
+        await axios.post('https://e-class-api.onrender.com/student', {
           name: name,
           userId: user,
           email: email,

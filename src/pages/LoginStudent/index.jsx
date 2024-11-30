@@ -14,7 +14,7 @@ function Login() {
     const fetchData = async () => {
       try {
         await axios
-          .post("http://localhost:3000/student/login", {
+          .post("https://e-class-api.onrender.com/student/login", {
             userId: user,
             password: password,
           })

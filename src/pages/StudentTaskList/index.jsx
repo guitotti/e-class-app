@@ -29,7 +29,7 @@ function StudentsTaskList() {
     if (isAuthenticated) {
       const fetchTasks = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/tasks", {
+          const response = await axios.get("https://e-class-api.onrender.com/tasks", {
             params: {
               studentId: state
             }
@@ -68,7 +68,7 @@ function StudentsTaskList() {
 
     const fetchData = async () => {
       try {
-        await axios.post('http://localhost:3000/task', {
+        await axios.post('https://e-class-api.onrender.com/task', {
           data: requestBody
         })
         .then(function (request) {
