@@ -56,7 +56,12 @@ function TaskCard({ title, status, description, dueDate }) {
               <span>Descrição:</span> {description}
             </p>
             <div className={styles.popupActions}>
-              <button><BiSolidCloudDownload className={styles.downloadIcon}/> Baixar</button>
+              {status == "pendente" && (
+                <button>
+                  <BiSolidCloudDownload className={styles.downloadIcon} />{" "}
+                  Baixar
+                </button>
+              )}
               <button onClick={handleClosePopup}>Fechar</button>
             </div>
           </div>
