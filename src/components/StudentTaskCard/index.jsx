@@ -26,15 +26,14 @@ function StudentTaskCard({ status, title, description, dueDate }) {
         </div>
       </div>
       <div className={styles.taskActions}>
-        {status == "enviada" ? (
+        {status == "enviada" && (
           <button className={styles.sendButton}>
             <BsSendArrowUpFill className={styles.icon} /> Enviar
           </button>
-        ) : (
-          <button onClick={handleEyeClick}>
-            <BsEyeFill className={styles.eyeIcon} />
-          </button>
         )}
+        <button onClick={handleEyeClick}>
+          <BsEyeFill className={styles.eyeIcon} />
+        </button>
       </div>
       {showPopup && (
         <div className={styles.popup}>
